@@ -1,0 +1,51 @@
+<h1>Welcome!</h1>
+
+<div  class="play-container">
+  <p>You've clicked <span (click)="countClick()"> this</span>{{ clickCounter }}  times</p>
+</div>
+
+<!--<div  class="play-container" [style.background-color]="clickCounter > 4 ? 'yellow' : 'lightgray'">-->
+<!--  <ng-template [ngIf] = "clickCounter > 4" [ngIfElse]="none">-->
+<!--&lt;!&ndash;    if the condition for ngIf is met, then will display anything that is inside here&ndash;&gt;-->
+<!--    <p>The click counter <strong> IS GREATER</strong> than 4.</p>-->
+<!--  </ng-template>-->
+<!--  <ng-template #none>-->
+<!--&lt;!&ndash;    else, if the condition is not met, it will display anything inside this other component&ndash;&gt;-->
+<!--    <p>The click counter <strong> IS NOT GREATER</strong> than 4.</p>-->
+<!--  </ng-template>-->
+<!--</div>-->
+
+<!--<div  class="play-container" [ngStyle]="{-->
+<!--'background-color': clickCounter > 4 ?  'yellow' : 'lightgray',-->
+<!--'border': clickCounter > 4 ? '4px solid black' : 'none'-->
+<!--}"> -->
+<!--  <ng-template [ngIf] = "clickCounter > 4" [ngIfElse]="none">-->
+<!--    &lt;!&ndash;    if the condition for ngIf is met, then will display anything that is inside here&ndash;&gt;-->
+<!--    <p>The click counter <strong> IS GREATER</strong> than 4.</p>-->
+<!--  </ng-template>-->
+<!--  <ng-template #none>-->
+<!--    &lt;!&ndash;    else, if the condition is not met, it will display anything inside this other component&ndash;&gt;-->
+<!--    <p>The click counter <strong> IS NOT GREATER</strong> than 4.</p>-->
+<!--  </ng-template>-->
+<!--</div>-->
+<div  class="play-container" [ngClass]="setClasses()">
+  <ng-template [ngIf] = "clickCounter > 4" [ngIfElse]="none">
+    <!--    if the condition for ngIf is met, then will display anything that is inside here-->
+    <p>The click counter <strong> {{"IS GREATER" | uppercase}}</strong> than 4.</p> <!-- this is a pipe, you can create custom pipes-->
+  </ng-template>
+  <ng-template #none>
+    <!--    else, if the condition is not met, it will display anything inside this other component-->
+    <p>The click counter <strong> IS NOT GREATER</strong> than 4.</p>
+  </ng-template>
+</div>
+
+<div>
+  <p>
+    <label>
+      Name:
+      <input type="text" [(ngModel)]="name">
+    </label>
+    <br>
+    <strong>You said: </strong> {{ name }}
+  </p>
+</div>
